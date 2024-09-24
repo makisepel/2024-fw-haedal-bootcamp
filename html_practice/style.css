@@ -1,0 +1,70 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+h1 {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    background-color: #003049;
+    width: 90%;
+    height: 500px;
+    margin: 0 auto;
+
+    flex-direction: row; /* 메인축 정하기 */
+    /* row row-reverse column column-reverse */
+    flex-wrap: nowrap; /* 줄바꿈 속성 */
+    /* no-wrap, wrap, wrap-reverse */
+    flex-flow: row nowrap; /* flex-direction과 flex-wrap을 동시에 건드릴 수 있음 */
+
+    justify-content: flex-start; /* 메인축 방향 정렬 */
+    /* flex-start, flex-end, center, space-between, space-around, space-evenly */
+    
+    align-items: stretch; /* 교차축 방향 정렬 
+    - 교차축에 해당하는 행 또는 열이 1개 */ 
+    /* stretch, flex-start, flex-end, center, baseline */
+
+    align-content: stretch; /* 교차축 방향 정렬 
+    - 교차축에 해당하는 행 또는 열이 2개 이상, flex-wrap: wrap;으로 설정되어야함 */
+    /* flex-start, flex-end, center, space-between, space-around, space-evenly */
+
+}
+
+.item {
+    width: 150px;
+    height: 150px;
+
+    flex-basis: auto; /* item의 기본 크기 설정, height 또는 width보다 우선순위를 가짐 */
+    /* auto, 0, %, px, rem. content, .. */
+
+    flex-grow: 0; /* flex-basis보다 커질 수 있는지 */
+    /* 들어가는 숫자는 곧 부모 container에서 차지하는 비율을 의미함 */
+    
+    flex-shrink: 1; /* flex-basis보다 작아질 수 있는지 */
+    /* 0일 경우 flex-wrap: wrap;에 의해 줄바꿈이 됨 */
+
+    flex: 1 1 auto;
+    /* flex-grow: 1; flex-shrink: 1; flex-basis: auto; */
+
+    align-self: auto; /* 해당 item의 교차축 방향 정렬 */
+    /* auto, stretch, flex-start, flex-end, center, baseline */
+
+}
+
+/* 1:2 비율 */
+.item1 {
+    width: 150px;
+    height: 150px;
+    font-size: 100px;
+    flex-basis: content;
+    flex-grow: 1;
+}
+
+.item2 {
+    width: 150px;
+    height: 150px;
+    font-size: 100px;
+    flex-basis: content;
+    flex-grow: 2;
+}
